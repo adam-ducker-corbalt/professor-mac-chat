@@ -3,17 +3,9 @@ import { Button } from '@cmsgov/design-system';
 import * as lucide from 'lucide-react';
 import styles from './Chat.module.css';
 
-// A tool the model called to get data, e.g. get_dora_metrics({"team":"MACFin"}).
-type ToolUse = {
-  name: string
-  arguments: string
-};
-
 type Message = {
   role: 'user' | 'assistant'
   text: string
-  // Lookups the model made for this answer (shown, not sent back).
-  tools?: ToolUse[]
   // Failed requests are shown in the transcript but never sent back to the model.
   error?: boolean
 };
@@ -24,31 +16,18 @@ const EXAMPLE_QUESTIONS = [
   "How has MACFin's deployment cadence changed since they shipped in February?",
 ];
 
-// Sends the conversation to the Go server, which asks OpenAI. Returns the reply
-// and the tools the model used to answer it.
-async function askProfessorMAC(conversation: Message[]): Promise<{ reply: string, tools: ToolUse[] }> {
+// Sends the conversation to the Go server, which asks OpenAI. Returns the reply.
+async function askProfessorMAC(conversation: Message[]): Promise<string> {
   const res = await fetch('/api/chat', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ messages: conversation.map(({ role, text }) => ({ role, text })) }),
   });
-  const data = (await res.json().catch(() => ({}))) as { reply?: string, tools?: ToolUse[], error?: string };
+  const data = (await res.json().catch(() => ({}))) as { reply?: string, error?: string };
   if (!res.ok || data.reply === undefined) {
     throw new Error(data.error ?? `HTTP ${res.status}`);
   }
-  return { reply: data.reply, tools: data.tools ?? [] };
-}
-
-// "get_dora_metrics(team: MACFin, start_month: 2026-02)"
-function describeTool(tool: ToolUse): string {
-  let args: Record<string, unknown> = {};
-  try {
-    args = JSON.parse(tool.arguments || '{}') as Record<string, unknown>;
-  } catch {
-    return `${tool.name}(${tool.arguments})`;
-  }
-  const list = Object.entries(args).map(([k, v]) => `${k}: ${String(v)}`).join(', ');
-  return `${tool.name}(${list})`;
+  return data.reply;
 }
 
 const Chat = () => {
@@ -71,8 +50,8 @@ const Chat = () => {
     setDraft('');
     setPending(true);
     try {
-      const { reply, tools } = await askProfessorMAC(conversation);
-      setMessages(m => [...m, { role: 'assistant', text: reply, tools }]);
+      const reply = await askProfessorMAC(conversation);
+      setMessages(m => [...m, { role: 'assistant', text: reply }]);
     } catch (err) {
       const reason = err instanceof Error ? err.message : String(err);
       setMessages(m => [...m, { role: 'assistant', text: `Something went wrong: ${reason}`, error: true }]);
@@ -120,16 +99,6 @@ const Chat = () => {
             )
           : messages.map((m, i) => (
               <div key={i} className={m.role === 'user' ? styles.user : m.error ? styles.error : styles.assistant}>
-                {m.tools && m.tools.length > 0 && (
-                  <ul className={styles.tools} aria-label="Data looked up">
-                    {m.tools.map((t, j) => (
-                      <li key={j}>
-                        <lucide.Database aria-hidden className={styles.toolIcon} />
-                        {describeTool(t)}
-                      </li>
-                    ))}
-                  </ul>
-                )}
                 {m.text}
               </div>
             ))}

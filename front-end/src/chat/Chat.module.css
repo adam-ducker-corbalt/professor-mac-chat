@@ -70,32 +70,6 @@
   color: var(--color-foreground-primary);
 }
 
-.tools {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  margin: 0 0 0.6rem;
-  border-bottom: 1px solid var(--color-border-primary);
-  padding: 0 0 0.5rem;
-  list-style: none;
-  color: var(--color-foreground-secondary);
-  font-family: ui-monospace, Menlo, monospace;
-  font-size: 0.75rem;
-  white-space: normal;
-
-  li {
-    display: flex;
-    align-items: center;
-    gap: 0.35rem;
-  }
-}
-
-.toolIcon {
-  flex: none;
-  width: 0.8rem;
-  height: 0.8rem;
-}
-
 .error {
   align-self: flex-start;
   border: 1px solid var(--color-change-bad);
