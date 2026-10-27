@@ -1,0 +1,11 @@
+/pmac-chat
+front-end/node_modules/
+front-end/dist/
+front-end/tsconfig.tsbuildinfo
+# Copied in by `make build` and removed after; only the placeholder index.html is committed.
+cmd/pmac-chat/static/assets/
+cmd/pmac-chat/static/favicon.ico
+.DS_Store
+
+# Secrets: copy .env.example to .env
+**/.env

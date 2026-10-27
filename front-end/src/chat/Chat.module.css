@@ -1,0 +1,142 @@
+/* Fills whatever contains it (the floating panel in ChatWidget). */
+.root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: var(--color-background-primary);
+}
+
+.transcript {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  overflow-y: auto;
+  padding: 1rem;
+  background-color: var(--color-background-secondary);
+}
+
+.empty {
+  margin: auto 0;
+}
+
+.examples {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.example {
+  width: 100%;
+  border: 1px solid var(--color-border-primary);
+  border-radius: 6px;
+  padding: 0.6rem 0.9rem;
+  background-color: var(--color-background-primary);
+  color: var(--color-foreground-primary);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+
+  &:hover {
+    border-color: var(--color-tint-1);
+    color: var(--color-tint-1);
+  }
+}
+
+.user,
+.assistant,
+.error,
+.pending {
+  max-width: 85%;
+  border-radius: 10px;
+  padding: 0.6rem 0.9rem;
+  white-space: pre-wrap;
+  line-height: 1.45;
+}
+
+.user {
+  align-self: flex-end;
+  background-color: var(--color-background-header);
+  color: var(--color-foreground-inverse);
+}
+
+.assistant {
+  align-self: flex-start;
+  border: 1px solid var(--color-border-primary);
+  background-color: var(--color-background-primary);
+  color: var(--color-foreground-primary);
+}
+
+.tools {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin: 0 0 0.6rem;
+  border-bottom: 1px solid var(--color-border-primary);
+  padding: 0 0 0.5rem;
+  list-style: none;
+  color: var(--color-foreground-secondary);
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 0.75rem;
+  white-space: normal;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+}
+
+.toolIcon {
+  flex: none;
+  width: 0.8rem;
+  height: 0.8rem;
+}
+
+.error {
+  align-self: flex-start;
+  border: 1px solid var(--color-change-bad);
+  background-color: var(--color-background-primary);
+  color: var(--color-change-bad);
+}
+
+.pending {
+  align-self: flex-start;
+  color: var(--color-foreground-secondary);
+  font-style: italic;
+}
+
+/* The input and Send button sit on one row at the same height. */
+.composer {
+  display: flex;
+  align-items: stretch;
+  gap: 0.5rem;
+  border-top: 1px solid var(--color-border-primary);
+  padding: 0.75rem;
+}
+
+/* .composer raises specificity above the Design System's .ds-c-field, which
+   adds a top margin that would push the input below the button. */
+.composer .input {
+  flex: 1;
+  max-width: none;
+  height: auto;
+  min-height: 0;
+  margin: 0;
+  resize: none;
+}
+
+.send {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.sendIcon {
+  width: 1rem;
+  height: 1rem;
+}

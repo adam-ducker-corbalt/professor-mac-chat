@@ -1,0 +1,17 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.main {
+  flex: 1;
+  padding: 2rem;
+  color: var(--color-foreground-primary);
+}
+
+.lede {
+  max-width: 48rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-foreground-secondary);
+}

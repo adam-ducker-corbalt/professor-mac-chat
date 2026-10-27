@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 461 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-152.186,-157.476)">
+        <g>
+            <g transform="matrix(0.848792,0,0,0.866343,153.615,132.561)">
+                <path d="M100.084,48.593L96.557,48.593C95.684,38.451 87.182,30.491 76.811,30.491C68.153,30.491 60.797,36.04 58.094,43.774C56.199,41.455 53.315,39.973 50.086,39.973C46.854,39.973 43.974,41.453 42.075,43.772C39.372,36.038 32.017,30.491 23.36,30.491C12.991,30.491 4.489,38.451 3.614,48.593L0.084,48.593L0.084,52.041L3.614,52.041C4.489,62.184 12.991,70.143 23.36,70.145C34.311,70.142 43.186,61.268 43.188,50.318C43.196,46.509 46.276,43.428 50.086,43.42C53.891,43.428 56.973,46.509 56.981,50.318L56.985,50.318C56.987,61.267 65.86,70.143 76.811,70.143C87.178,70.143 95.682,62.183 96.557,52.041L100.084,52.041L100.084,48.593ZM23.359,66.696C14.315,66.679 6.998,59.361 6.982,50.316C6.998,41.271 14.315,33.954 23.359,33.938C32.405,33.954 39.721,41.272 39.738,50.316C39.721,59.361 32.405,66.68 23.359,66.696ZM76.811,66.696C67.766,66.68 60.45,59.363 60.432,50.315C60.45,41.271 67.766,33.955 76.811,33.938C85.856,33.955 93.174,41.272 93.188,50.315C93.174,59.363 85.855,66.681 76.811,66.696Z" style="fill:white;fill-rule:nonzero;stroke:white;stroke-width:3.5px;"/>
+            </g>
+            <g transform="matrix(4.05007,0,0,4.05007,-1290.26,-609.392)">
+                <text x="381.01px" y="197.709px" style="font-family:'AvenirNext-Bold', 'Avenir Next', sans-serif;font-weight:700;font-size:10.594px;fill:white;">PROFESSOR</text>
+                <text x="444.925px" y="197.709px" style="font-family:'AvenirNext-Bold', 'Avenir Next', sans-serif;font-weight:700;font-size:10.594px;fill:rgb(249,190,44);">MA<tspan x="462.575px " y="197.709px ">C</tspan></text>
+            </g>
+        </g>
+    </g>
+</svg>

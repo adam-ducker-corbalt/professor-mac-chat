@@ -1,0 +1,72 @@
+/* Layout and spacing follow ProfessorMAC's Header.module.css and
+   GlobalNav.module.css. */
+.root {
+  display: flex;
+  align-items: center;
+  box-sizing: content-box;
+  min-height: 4.5rem;
+  background-color: var(--color-background-header);
+}
+
+.logo {
+  flex: none;
+  margin: 0 1.5rem;
+
+  > img {
+    display: block;
+    height: 1rem;
+  }
+}
+
+.nav {
+  margin-left: 2rem;
+  flex: 1;
+}
+
+.list {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  border: none;
+  padding: 0 2rem 0 0;
+  background: none;
+  color: var(--color-foreground-inverse);
+  font-weight: 700;
+  user-select: none;
+}
+
+.icon {
+  display: block;
+  margin-top: 0.25rem;
+  width: 1rem;
+  height: 1rem;
+}
+
+.help {
+  flex: none;
+  margin: 0 2rem;
+
+  > svg {
+    display: block;
+    height: 1.25rem;
+    color: var(--color-foreground-inverse);
+  }
+}
+
+/* ProfessorMAC's narrow breakpoint */
+@media (max-width: 720px) {
+  .nav {
+    margin-left: 0;
+  }
+
+  .list {
+    display: none;
+  }
+}

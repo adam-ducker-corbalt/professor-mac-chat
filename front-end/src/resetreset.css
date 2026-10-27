@@ -1,0 +1,63 @@
+/*
+ * Revert problematic styles in the CMS Design System "reset":
+ * https://github.com/CMSgov/design-system/blob/main/packages/design-system/src/styles/_reset.scss
+ *
+ * These styles are not broadly applicable, and they interfere with
+ * ProfessorMAC. We can't omit them because the CMS Design System distributes
+ * its styles as one file, so our only option is to revert them.
+ *
+ * We revert specific properties because element-pseudoclass selectors (a:hover)
+ * have greater specificity than class selectors (.ds-c-vertical-nav__label), so
+ * "all: revert" would cause styles to be reverted when the pseudoclass takes
+ * effect.
+ *
+ * We set some of these styles to the values we want for ProfessorMAC in
+ * styles.css. This file is only for reverting CMS Design System styles.
+ *
+ * This CSS file must be included after CMS Design System styles and before
+ * ProfessorMAC styles.
+ */
+
+a {
+  color: revert;
+  text-decoration-color: revert;
+  text-decoration-style: revert;
+  text-decoration-thickness: revert;
+  text-underline-offset: revert;
+
+  &:visited {
+    color: revert;
+  }
+
+  &:hover {
+    color: revert;
+    text-decoration-thickness: revert;
+  }
+
+  &:focus,
+  &:focus:visited {
+    background-color: revert;
+    box-shadow: revert;
+    color: revert;
+    outline: revert;
+    outline-offset: revert;
+  }
+
+  &:active {
+    color: revert;
+    text-decoration-thickness: revert;
+  }
+}
+
+label {
+  margin-block: revert;
+}
+
+ol:not(:where([role])),
+ul:not(:where([role])) {
+  display: revert;
+  flex-direction: revert;
+  gap: revert;
+  margin-block: revert;
+  padding-inline-start: revert;
+}

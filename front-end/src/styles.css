@@ -1,0 +1,37 @@
+/* Color tokens copied from ProfessorMAC's front-end/src/styles.css. */
+:root {
+  --color-background-primary: white;
+  --color-background-secondary: rgb(242 242 242);
+  --color-background-header: rgb(22 29 54);
+  --color-foreground-primary: rgb(38 38 38);
+  --color-foreground-secondary: rgb(90 90 90);
+  --color-foreground-inverse: white;
+  --color-border-primary: rgb(217 217 217);
+  --color-change-bad: rgb(227 28 61);
+  --color-control-hover-header: rgb(255 255 255 / 0.1);
+  --color-link: var(--color-tint-1);
+  --color-shadow: rgb(0 0 0 / 0.1);
+  --color-tint-1: rgb(0 113 188);
+  --color-tint-3: rgb(248 196 31);
+
+  /* override CMS Design System purple focus box */
+  --color-focus-dark: #ffffff;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+a,
+a:active,
+a:focus,
+a:focus:visited,
+a:hover,
+a:visited {
+  color: var(--color-link);
+}
